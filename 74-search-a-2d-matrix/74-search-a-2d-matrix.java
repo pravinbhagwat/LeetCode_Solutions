@@ -1,6 +1,7 @@
 class Solution {
-    public boolean searchMatrix(int[][] matrix, int target) {
-        int start = 0;
+    
+    static boolean solution1(int[][] matrix, int target){
+         int start = 0;
         int end = matrix.length - 1;
         int row = -1;
         
@@ -33,5 +34,8 @@ class Solution {
         }
         
         return false;
+    }
+    public boolean searchMatrix(int[][] matrix, int target) {
+        return solution1(matrix, target);
     }
 }
