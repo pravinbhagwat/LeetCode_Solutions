@@ -36,6 +36,22 @@ class Solution {
         return false;
     }
     public boolean searchMatrix(int[][] matrix, int target) {
-        return solution1(matrix, target);
+        //return solution1(matrix, target);
+        int r = matrix.length;
+        int c = matrix[0].length;
+        int start = 0;
+        int end = (r * c) - 1;
+        
+        while(start <= end){
+            int mid = (start + end) / 2;
+            int rIdx = (mid / c);
+            int cIdx = (mid % c);
+            
+            if(matrix[rIdx][cIdx] == target) return true;
+            else if(target < matrix[rIdx][cIdx]) end = mid - 1;
+            else start = mid + 1;
+        }
+        
+        return false;
     }
 }
