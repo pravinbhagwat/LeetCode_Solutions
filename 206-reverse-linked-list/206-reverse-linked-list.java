@@ -26,8 +26,22 @@ class Solution {
         return head;
     }
     
+    static ListNode approach2(ListNode head){
+        if(head == null || head.next == null) {
+            return head;
+        }
+        ListNode last = approach2(head.next);
+        head.next.next = head;
+        head.next = null;
+        
+        
+        return last;
+        
+    }
+    
     public ListNode reverseList(ListNode head) {
         
-        return approach1(head);
+        //return approach1(head);
+        return approach2(head);
     }
 }
