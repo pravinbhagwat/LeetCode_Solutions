@@ -9,7 +9,7 @@
  * }
  */
 class Solution {
-    public ListNode reverseList(ListNode head) {
+    static ListNode approach1(ListNode head){
         ListNode prev = null;
         ListNode current = head;
         ListNode next = null;
@@ -24,5 +24,10 @@ class Solution {
         //System.out.println(current.val);
         head  = prev;
         return head;
+    }
+    
+    public ListNode reverseList(ListNode head) {
+        
+        return approach1(head);
     }
 }
