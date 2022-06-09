@@ -22,6 +22,7 @@ class Solution {
             current = next;
         }
         //System.out.println(current.val);
-        return prev;
+        head  = prev;
+        return head;
     }
 }
