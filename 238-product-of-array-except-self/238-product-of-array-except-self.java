@@ -3,7 +3,7 @@
 // 2- O(n), Space = O(n)
 
 class Solution {
-    public int[] productExceptSelf(int[] nums) {
+    public int[] appraoch1(int[] nums){
         int n = nums.length;
         
         int[] prefix = new int[n];
@@ -25,5 +25,25 @@ class Solution {
             prod[i] = prefix[i] * suffix[i];
         
         return prod;
+    }
+    
+    public int[] approach2(int[] nums){
+        int n = nums.length;
+        
+        int[] prod = new int[n];
+        int temp = 1;
+        for(int i = 0; i < n; i++){
+            prod[i] = temp;
+            temp = temp * nums[i];
+        }
+        temp = 1;
+        for(int i = n-1; i >= 0; i--){
+            prod[i] = prod[i] * temp;
+            temp = temp * nums[i];
+        }
+        return prod;
+    }
+    public int[] productExceptSelf(int[] nums) {
+        return approach2(nums);
     }
 }
