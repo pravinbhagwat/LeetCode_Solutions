@@ -12,16 +12,16 @@ class Solution {
         
         Map<Integer, Integer> hm = new HashMap<>();
         
-        //hm.put(0,1);
+        hm.put(0,1);
         
         //int currSum = 0;
         int count = 0;
         for(int i = 0; i < n; i++){
             int target = prefixSum[i] - k;
-            if(prefixSum[i] == k) {
-                //hm.put(prefixSum[i], hm.getOrDefault(prefixSum[i], 0) + 1);
-                count++;
-            }
+            // if(prefixSum[i] == k) {
+            //     //hm.put(prefixSum[i], hm.getOrDefault(prefixSum[i], 0) + 1);
+            //     count++;
+            // }
             if(hm.containsKey(target)){
                 //hm.put(prefixSum[i], hm.getOrDefault(prefixSum[i], 0) + 1);
                 count+=hm.get(target);
