@@ -1,17 +1,19 @@
-class Node {
-    Node next;
-    int val;
-    public Node() {}
-    public Node(int val) {
-        this.val = val;
-    }
-    public Node(int val, Node next) {
-        this.val = val;
-        this.next = next;
-    }
-}
+
 
 class MyLinkedList {
+    
+    class Node {
+        Node next;
+        int val;
+        public Node() {}
+        public Node(int val) {
+            this.val = val;
+        }
+        public Node(int val, Node next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
     //dummy head
     Node head;
     int size;
