@@ -36,7 +36,7 @@ class Solution {
         ListNode mid = getMid(head);
         ListNode revHead = reverse(mid);
         ListNode temp = head;
-        while(temp != null && revHead != null){
+        while(revHead != null){
             if(temp.val != revHead.val) return false;
             temp = temp.next;
             revHead = revHead.next;
