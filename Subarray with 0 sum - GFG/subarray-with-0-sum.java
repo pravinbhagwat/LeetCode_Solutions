@@ -50,7 +50,7 @@ class Solution{
       for(int i = 0; i < n; i++){
         sum = sum + arr[i];
         prefixSum[i] =  sum;
-        if(hm.containsKey(prefixSum[i] - 0)) return true;
+        if(hm.containsKey(prefixSum[i])) return true;
         if(prefixSum[i] == 0) return true;
         hm.put(prefixSum[i], hm.getOrDefault(prefixSum[i], 0) + 1);
       }
