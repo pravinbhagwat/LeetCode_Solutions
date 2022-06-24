@@ -51,7 +51,7 @@ class Solution {
     int print2largest(int arr[], int n) {
         // code here
           if(n < 2) return -1;
-          int maxEle = Integer.MIN_VALUE;
+          int maxEle = -1;
           for(int i = 0; i < n; i++){
             if(arr[i] > maxEle) maxEle = arr[i];
           }
