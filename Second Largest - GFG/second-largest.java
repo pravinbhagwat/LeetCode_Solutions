@@ -32,7 +32,7 @@ public class Main {
 //User function Template for Java
 
 class Solution {
-    // O(nlogn) TC
+    // O(nlogn + n) TC
     // int print2largest(int arr[], int n) {
     //     // code here
     //       if(n < 2) return -1;
@@ -47,20 +47,39 @@ class Solution {
     //       return -1;
     // }
     
-    //O(n) TC
+    //O(n+n) TC 
+    // int print2largest(int arr[], int n) {
+    //     // code here
+    //       if(n < 2) return -1;
+    //       int maxEle = -1;
+    //       for(int i = 0; i < n; i++){
+    //         if(arr[i] > maxEle) maxEle = arr[i];
+    //       }
+    //       //System.out.println(maxEle + " ");
+    //       int secondMax = -1;
+    //       for(int i = 0; i < n; i++){
+    //         if(arr[i] != maxEle) {
+    //             secondMax = Math.max(secondMax, arr[i]);
+    //         }
+    //         //System.out.println(secondMax + " ");
+    //       }
+          
+    //       return secondMax;
+    // }
+    
+    // O(n) 1 traverse
     int print2largest(int arr[], int n) {
         // code here
           if(n < 2) return -1;
-          int maxEle = -1;
-          for(int i = 0; i < n; i++){
-            if(arr[i] > maxEle) maxEle = arr[i];
-          }
-          //System.out.println(maxEle + " ");
+          int max = -1;
           int secondMax = -1;
           for(int i = 0; i < n; i++){
-            if(arr[i] != maxEle) {
-                secondMax = Math.max(secondMax, arr[i]);
+            
+            if(arr[i] > max) {
+                secondMax = max;
+                max = arr[i];
             }
+            if(arr[i] != max) secondMax = Math.max(secondMax, arr[i]);
             //System.out.println(secondMax + " ");
           }
           
