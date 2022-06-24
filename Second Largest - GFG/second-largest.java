@@ -32,17 +32,38 @@ public class Main {
 //User function Template for Java
 
 class Solution {
+    // O(nlogn) TC
+    // int print2largest(int arr[], int n) {
+    //     // code here
+    //       if(n < 2) return -1;
+    //       Arrays.sort(arr); 
+    //       if(arr[n-2] != arr[n-1]) return arr[n-2];
+          
+    //       for(int i = n-2; i >= 0; i--){
+    //         if(arr[i] != arr[i+1]) {
+    //           return arr[i];
+    //         }
+    //       }
+    //       return -1;
+    // }
+    
+    //O(n) TC
     int print2largest(int arr[], int n) {
         // code here
           if(n < 2) return -1;
-          Arrays.sort(arr); 
-          if(arr[n-2] != arr[n-1]) return arr[n-2];
-          
-          for(int i = n-2; i >= 0; i--){
-            if(arr[i] != arr[i+1]) {
-              return arr[i];
-            }
+          int maxEle = Integer.MIN_VALUE;
+          for(int i = 0; i < n; i++){
+            if(arr[i] > maxEle) maxEle = arr[i];
           }
-          return -1;
+          //System.out.println(maxEle + " ");
+          int secondMax = -1;
+          for(int i = 0; i < n; i++){
+            if(arr[i] != maxEle) {
+                secondMax = Math.max(secondMax, arr[i]);
+            }
+            //System.out.println(secondMax + " ");
+          }
+          
+          return secondMax;
     }
 }
