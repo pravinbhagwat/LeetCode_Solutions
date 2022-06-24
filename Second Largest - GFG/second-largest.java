@@ -34,9 +34,9 @@ public class Main {
 class Solution {
     int print2largest(int arr[], int n) {
         // code here
-          if(n < 2) return arr[0];
+          if(n < 2) return -1;
           Arrays.sort(arr); 
-          if(arr[n-1] != arr[n-2]) return arr[n-2];
+          if(arr[n-2] != arr[n-1]) return arr[n-2];
           
           for(int i = n-2; i >= 0; i--){
             if(arr[i] != arr[i+1]) {
