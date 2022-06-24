@@ -71,8 +71,8 @@ class Solution {
     int print2largest(int arr[], int n) {
         // code here
           if(n < 2) return -1;
-          int max = -1;
-          int secondMax = -1;
+          int max = Integer.MIN_VALUE;
+          int secondMax = Integer.MIN_VALUE;
           for(int i = 0; i < n; i++){
             
             if(arr[i] > max) {
@@ -82,7 +82,7 @@ class Solution {
             if(arr[i] != max) secondMax = Math.max(secondMax, arr[i]);
             //System.out.println(secondMax + " ");
           }
-          
+          if(secondMax == Integer.MIN_VALUE) return -1;
           return secondMax;
     }
 }
