@@ -15,21 +15,21 @@
  */
 class Solution {
     
-    public boolean findPaths(TreeNode root, String temp, List<String> ans){
-        if(root == null) return true;
+    public void findPaths(TreeNode root, String temp, List<String> ans){
+        if(root == null) return;
         
         
         if(root.left == null && root.right == null) {
             temp += root.val;
             ans.add(temp);
-            return true;
+            return;
         }
         String path = root.val + "->";
         temp += path;
         if(root.left != null) findPaths(root.left, temp, ans);
         if(root.right != null) findPaths(root.right, temp, ans);
         
-        return true;
+        return;
         
     }
     
