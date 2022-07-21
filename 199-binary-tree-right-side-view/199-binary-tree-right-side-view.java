@@ -14,9 +14,10 @@
  * }
  */
 class Solution {
- 
-    public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> ans = new ArrayList<>();
+    
+    // Approach 1 - Iterative BFS
+    /*
+    List<Integer> ans = new ArrayList<>();
         if(root == null) return ans;
         Queue<TreeNode> que = new LinkedList<>();
         que.offer(root);
@@ -32,6 +33,19 @@ class Solution {
             }
             ans.add(list.get(list.size()-1));
         }
+        return ans;
+    */
+    
+    private void solve(TreeNode root, List<Integer> ans, int level){
+        if(root == null) return;
+        if(ans.size() == level) ans.add(root.val);
+        solve(root.right, ans, level + 1);
+        solve(root.left, ans, level + 1);
+        return;
+    }
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        solve(root, ans, 0);
         return ans;
     }
 }
