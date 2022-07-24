@@ -38,7 +38,7 @@ class Solution {
     
     public ListNode reverseList(ListNode head) {
         
-        //return approach1(head);
-        return approach2(head);
+        return approach1(head);
+        //return approach2(head);
     }
 }
