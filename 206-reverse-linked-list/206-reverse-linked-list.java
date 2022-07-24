@@ -8,35 +8,32 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+// 1. Interative
+// 2. Recursive
+
 class Solution {
-    static ListNode approach1(ListNode head){
-        ListNode prev = null;
+    private ListNode approach1(ListNode head){
+        if(head == null || head.next == null) return head;
         ListNode current = head;
-        ListNode next = null;
+        ListNode nextNode = null;
+        ListNode prevNode = null;
         
         while(current != null){
-             //System.out.println(current.val);
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+            nextNode = current.next;
+            current.next = prevNode;
+            prevNode = current;
+            current = nextNode;
         }
-        //System.out.println(current.val);
-        head  = prev;
-        return head;
+        return prevNode;
     }
     
-    static ListNode approach2(ListNode head){
-        if(head == null || head.next == null) {
-            return head;
-        }
-        ListNode last = approach2(head.next);
+    private ListNode approach2(ListNode head){
+        if(head == null || head.next == null) return head;
+        ListNode newHead = approach2(head.next);
         head.next.next = head;
         head.next = null;
-        
-        
-        return last;
-        
+        return newHead;
     }
     
     public ListNode reverseList(ListNode head) {
