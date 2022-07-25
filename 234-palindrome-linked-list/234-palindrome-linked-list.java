@@ -9,38 +9,54 @@
  * }
  */
 class Solution {
-    public ListNode getMid(ListNode head){
+    
+    public int traverse(ListNode head){
+        int length = 0;
+        while(head != null){
+            head = head.next;
+            length++;
+        }
+        return length;
+    }    
+    
+    private ListNode findMid(ListNode head, int length){
         ListNode slow = head;
         ListNode fast = head;
-        
-        while(fast != null && fast.next != null){
+        ListNode prev = null;
+        while(fast != null && fast.next != null) {
+            prev = slow;
             slow = slow.next;
             fast = fast.next.next;
         }
-        
-        return slow;
+        return prev;
     }
     
-    public ListNode reverse(ListNode head){
+    private ListNode reverseList(ListNode head){
         if(head == null || head.next == null) return head;
-        ListNode newHead = reverse(head.next);
-        ListNode after = head.next;
-        after.next = head;
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
         head.next = null;
         return newHead;
     }
     
-    public boolean isPalindrome(ListNode head) {  
-        if(head == null) return false;   
+    public boolean isPalindrome(ListNode head) {
+        if(head == null || head.next == null) return true;
+        ListNode List1 = head;
+        int length = traverse(List1);
+        ListNode midNode = findMid(List1, length);
         
-        ListNode mid = getMid(head);
-        ListNode revHead = reverse(mid);
-        ListNode temp = head;
-        while(revHead != null){
-            if(temp.val != revHead.val) return false;
-            temp = temp.next;
-            revHead = revHead.next;
+        ListNode midNodeNext = midNode.next;
+        midNode.next = null;
+        // ListNode List1 = head;
+        ListNode List2 = reverseList(midNodeNext);
+        
+        while(List1 != null && List2 != null){
+            if(List1.val != List2.val) return false;
+            List1 = List1.next;
+            List2 = List2.next;
         }
+        
+        //if(List1 == null && List2 == null) return true;
         return true;
     }
 }
